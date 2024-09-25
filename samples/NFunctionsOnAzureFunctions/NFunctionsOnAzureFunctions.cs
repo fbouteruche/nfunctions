@@ -9,7 +9,7 @@ namespace NFunctionsOnAzureFunctions
         [HttpTrigger(NFunctions.Http.HttpMethod.GET, "api")]
         public HttpTriggerReponse MyFirstFunction(IHttpTriggerRequest request)
         {
-            return new HttpTriggerReponse(System.Net.HttpStatusCode.OK, "Hello Olivier from NFunction");
+            return new HttpTriggerReponse(System.Net.HttpStatusCode.OK, "Hello from NFunction");
         }
     }
 }
