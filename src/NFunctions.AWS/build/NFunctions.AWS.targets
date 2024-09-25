@@ -1,0 +1,5 @@
+<Project>
+	<Target Name ="CustomMessage" BeforeTargets="BeforeCompile">
+		<Exec Command="powershell $(MSBuildThisFileDirectory)/../scripts/init.ps1 $(MSBuildProjectFullPath)" />
+	</Target>
+</Project>

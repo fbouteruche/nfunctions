@@ -1,0 +1,25 @@
+﻿	<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<IsPackable>true</IsPackable>
+		<TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+		<LangVersion>latest</LangVersion>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageOutputPath>../PackageOutput</PackageOutputPath>
+		<Version>0.0.1-preview</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\NFunctions\NFunctions.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="build\**" Pack="true" PackagePath="build\"></None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="scripts\**" Pack="true" PackagePath="scripts\" />
+	</ItemGroup>
+
+</Project>

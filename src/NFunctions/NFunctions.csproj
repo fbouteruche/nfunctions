@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	<LangVersion>Latest</LangVersion>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PackageOutputPath>../PackageOutput</PackageOutputPath>
+	  <Version>0.0.1-preview</Version>
+  </PropertyGroup>
+
+</Project>

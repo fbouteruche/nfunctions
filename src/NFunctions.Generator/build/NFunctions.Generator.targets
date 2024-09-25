@@ -1,0 +1,8 @@
+<Project>
+	<ItemGroup>
+		<Files Include="$(MSBuildThisFileDirectory)/../config/nfunctions.json" />
+	</ItemGroup>
+	<Target Name="CopyFiles" BeforeTargets="BeforeCompile" Condition="!Exists('$(MSBuildProjectDirectory)/nfunctions.json')">
+		<Copy SourceFiles="@(Files)" DestinationFolder="$(MSBuildProjectDirectory)/%(RecursiveDir)" />
+	</Target>
+</Project>

@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<!--<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+	  <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>-->
+		<AzureFunctionsVersion>v4</AzureFunctionsVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<CompilerVisibleProperty Include="MSBuildProjectDirectory"></CompilerVisibleProperty>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\NFunctions.Azure\NFunctions.Azure.csproj" />
+		<ProjectReference Include="..\NFunctions.Generator\NFunctions.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<ProjectReference Include="..\NFunctions\NFunctions.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.21.0" />
+		<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.4.0" />
+	</ItemGroup>
+
+</Project>

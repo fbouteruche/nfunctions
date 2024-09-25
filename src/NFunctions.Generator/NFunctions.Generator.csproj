@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <PackageOutputPath>../PackageOutput</PackageOutputPath>
+	<IncludeBuildOutput>false</IncludeBuildOutput>
+	<Nullable>enable</Nullable>
+	<ImplicitUsings>true</ImplicitUsings>
+	<LangVersion>Latest</LangVersion>
+	<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+	<IsRoslynComponent>true</IsRoslynComponent>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	  <Version>0.0.1-preview</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
+  </ItemGroup>
+	
+  <ItemGroup>
+	<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" GeneratePathProperty="true" PrivateAssets="all" />
+	<PackageReference Include="System.Buffers" Version="4.5.1" GeneratePathProperty="true" PrivateAssets="all" />
+    <PackageReference Include="System.Memory" Version="4.5.5" GeneratePathProperty="true" PrivateAssets="all" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" GeneratePathProperty="true" PrivateAssets="all" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" GeneratePathProperty="true" PrivateAssets="all" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="8.0.0" GeneratePathProperty="true" PrivateAssets="all" />
+    <PackageReference Include="System.Text.Json" Version="8.0.4" GeneratePathProperty="true" PrivateAssets="all" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" GeneratePathProperty="true" PrivateAssets="all" />
+  </ItemGroup>
+
+	<PropertyGroup>
+		<GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
+	</PropertyGroup>
+
+	<Target Name="GetDependencyTargetPaths">
+		<ItemGroup>
+			<TargetPathWithTargetPlatformMoniker Include="$(PKGMicrosoft_Bcl_AsyncInterfaces)\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll" IncludeRuntimeDependency="false" />
+			<TargetPathWithTargetPlatformMoniker Include="$(PKGSystem_Buffers)\lib\netstandard2.0\System.Buffers.dll" IncludeRuntimeDependency="false" />
+			<TargetPathWithTargetPlatformMoniker Include="$(PKGSystem_Memory)\lib\netstandard2.0\System.Memory.dll" IncludeRuntimeDependency="false" />
+			<TargetPathWithTargetPlatformMoniker Include="$(PKGSystem_Numerics_Vectors)\lib\netstandard2.0\System.Numerics.Vectors.dll" IncludeRuntimeDependency="false" />
+			<TargetPathWithTargetPlatformMoniker Include="$(PKGSystem_Runtime_CompilerServices_Unsafe)\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" IncludeRuntimeDependency="false" />
+			<TargetPathWithTargetPlatformMoniker Include="$(PKGSystem_Text_Encodings_Web)\lib\netstandard2.0\System.Text.Encodings.Web.dll" IncludeRuntimeDependency="false" />
+			<TargetPathWithTargetPlatformMoniker Include="$(PKGSystem_Text_Json)\lib\netstandard2.0\System.Text.Json.dll" IncludeRuntimeDependency="false" />
+			<TargetPathWithTargetPlatformMoniker Include="$(PKGSystem_Threading_Tasks_Extensions)\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll" IncludeRuntimeDependency="false" />
+		</ItemGroup>
+	</Target>
+
+	<ItemGroup>
+		<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+		<None Include="$(PKGSystem_Text_Encodings_Web)\lib\netstandard2.0\System.Text.Encodings.Web.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+		<None Include="$(PKGSystem_Text_Json)\lib\netstandard2.0\System.Text.Json.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+		<None Include="$(PKGMicrosoft_Bcl_AsyncInterfaces)\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+		<None Include="$(PKGSystem_Buffers)\lib\netstandard2.0\System.Buffers.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+		<None Include="$(PKGSystem_Memory)\lib\netstandard2.0\System.Memory.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+		<None Include="$(PKGSystem_Numerics_Vectors)\lib\netstandard2.0\System.Numerics.Vectors.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+		<None Include="$(PKGSystem_Runtime_CompilerServices_Unsafe)\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+		<None Include="$(PKGSystem_Threading_Tasks_Extensions)\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\NFunctions\NFunctions.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="build\**" Pack="true" PackagePath="build\"></None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="nfunctions.json" Pack="true" PackageFlatten="true" PackagePath="config\"></None>
+	</ItemGroup>
+
+</Project>

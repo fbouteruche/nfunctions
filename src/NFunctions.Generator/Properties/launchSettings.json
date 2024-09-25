@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "AWS": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\DebugNFunctionsToAWSLambda\\DebugNFunctionsToAWSLambda.csproj"
+    },
+    "Azure": {
+      "commandName": "DebugRoslynComponent",
+      "targetProject": "..\\DebugNFunctionsToAzureFunctions\\DebugNFunctionsToAzureFunctions.csproj"
+    }
+  }
+}
