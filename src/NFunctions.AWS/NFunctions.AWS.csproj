@@ -1,25 +1,37 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-	  <OutputType>Library</OutputType>
-	  <IsPackable>true</IsPackable>
-    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
-	  <LangVersion>latest</LangVersion>
-      <Nullable>enable</Nullable>
-	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <PackageOutputPath>../PackageOutput</PackageOutputPath>
-	  <Version>0.0.1-preview</Version>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<IsPackable>true</IsPackable>
+		<TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageOutputPath>../PackageOutput</PackageOutputPath>
+		<Version>0.0.1-preview</Version>
+		<Title>NFunctions.AWS</Title>
+		<Authors>François Bouteruche</Authors>
+		<Description>NFunctions is a C# open source serverless function framework that aims to free your code from AWS Lambda or Azure Functions boilerplate code while still leveraging those FaaS services. NFunctions.AWS package contains the AWS specific model definitions.</Description>
+		<PackageProjectUrl>https://github.com/fbouteruche/nfunctions</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/fbouteruche/nfunctions</RepositoryUrl>
+		<PackageTags>Serverless, AWS, Azure, AWS Lambda, Azure Functions</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>Readme.md</PackageReadmeFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Amazon.Lambda.APIGatewayEvents" Version="2.7.1" />
-    <PackageReference Include="Amazon.Lambda.Core" Version="2.3.0" />
-    <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.4.3" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="../../Readme.md" Pack="true" PackagePath="/" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NFunctions\NFunctions.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Amazon.Lambda.APIGatewayEvents" Version="2.7.1" />
+		<PackageReference Include="Amazon.Lambda.Core" Version="2.3.0" />
+		<PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.4.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\NFunctions\NFunctions.csproj" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<None Include="build\**" Pack="true" PackagePath="build\"></None>

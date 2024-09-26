@@ -5,7 +5,7 @@ boilerplate code while still leveraging those FaaS services.
 
 You just use NFunctions agnostic attributes to tag your function handler methods and define their triggers. 
 NFunctions source generator then automatically generates the AWS Lambda or Azure boilerplate code for you based
-on the NFunctions cloud provider NuGet package you've added to your project (NFunctions.AWS or NFunctions.Azure).
+on the NFunctions cloud provider NuGet package you've added to your project: `NFunctions.AWS` or `NFunctions.Azure`.
 
 A typical NFunctions handler method looks like the below code. The `NFunctions` attribute tags your method
 as a function handler method. You can pass the name of the function to attribute. The `HttpTrigger` attribute
@@ -44,4 +44,4 @@ code away from AWS Lambda and Azure Functions without sacrifiying to Kubernetes.
 
 ## How to provide feedback
 
-We are looking for feedback. Please, open an issue to record your feedback.
+We are looking for feedback. Please, open an issue to record your feedback in our GitHub repository.
